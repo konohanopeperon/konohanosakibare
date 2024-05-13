@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>患者検索</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>患者検索</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>患者ID</th>
+            <th>氏名</th>
+            <th>保険証番号</th>
+            <th>保険証有効期限</th>
+        </tr>
+        </thead>
+        <tbody id="patientList">
+        <!-- Patient records will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Sample patient data (replace with actual data from server)
+    var patients = [
+        { id: 1, name: "患者1", insuranceNumber: "1234567890", insuranceExpiry: "2023-01-01" },
+        { id: 2, name: "患者2", insuranceNumber: "0987654321", insuranceExpiry: "2024-06-01" },
+        { id: 3, name: "患者3", insuranceNumber: "5432167890", insuranceExpiry: "2021-12-31" }
+        // Add more patient records here
+    ];
+
+    // Display patients whose insurance is expired
+    var patientList = document.getElementById("patientList");
+    patients.forEach(function(patient) {
+        var expiryDate = new Date(patient.insuranceExpiry);
+        var today = new Date();
+        if (expiryDate === expiryDate) {
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                    <td>${patient.id}</td>
+                    <td>${patient.name}</td>
+                    <td>${patient.insuranceNumber}</td>
+                    <td>${patient.insuranceExpiry}</td>
+                `;
+            patientList.appendChild(row);
+        }
+    });
+</script>
+</body>
+</html>

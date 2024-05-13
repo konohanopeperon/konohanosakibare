@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保険証情報変更画面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0    , 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<form action="/change_admin_password" method="post">
+    <h2>保険証情報変更</h2>
+    <input type="text" name="current-password" placeholder="患者ID" required>
+    <input type="text" name="new-password" placeholder="患者名" required>
+    <input type="text" name="confirm-password" placeholder="患者姓" required>
+    <input type="text" name="confirm-password" placeholder="保険証名記号番号" required>
+    <input type="date" name="confirm-password" placeholder="有効期限" required>
+    <input type="submit" value="情報変更">
+</form>
+</body>
